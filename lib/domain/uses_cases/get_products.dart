@@ -6,7 +6,7 @@ class GetProducts {
 
   GetProducts(this.repository);
 
-  Stream<List<Product>> call() {
+  List<Product> call() {
     return repository.getProducts();
   }
 }

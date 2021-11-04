@@ -7,7 +7,7 @@ class GetDetails {
 
   GetDetails(this.repository, this.id);
 
-  Stream<Product> call() {
+  Product call() {
     return repository.getDetails(id);
   }
 }

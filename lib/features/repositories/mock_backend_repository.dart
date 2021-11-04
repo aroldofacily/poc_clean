@@ -3,8 +3,8 @@ import 'package:poc_clean/domain/repositories/backend_repository.dart';
 
 class MockBackendRepository implements BackendRepositoryInterface {
   @override
-  Stream<List<Product>> getProducts() async* {
-    yield [
+  List<Product> getProducts() {
+    return [
       Product(
           id: 0,
           name: 'Produto A',
@@ -30,9 +30,10 @@ class MockBackendRepository implements BackendRepositoryInterface {
   }
 
   @override
-  Stream<Product> getDetails(int id) {
-    var list = getProducts()
-        .map((event) => event.where((element) => element.id == id).first);
+  Product getDetails(int id) {
+    // var list = getProducts()
+    //     .map((event) => event.where((element) => element.id == id).first);
+    var list = getProducts().where((element) => element.id == id).first;
     return list;
   }
 }
